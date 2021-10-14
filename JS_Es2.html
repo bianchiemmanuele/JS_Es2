@@ -5,12 +5,30 @@
     <body>
         <h1>JS ES 2</h1>
         <h2>Static HTML page: exercise 1 but with JQuery</h2>
-        <div id="div1">Non premere il bottone</div>
-        <button>cliccami</button>
+        <div id="div1"></div>
+        <button id="btn1">cliccami</button>
         <script source src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
         <script>
-            document.getElementById("div1").innerHTML = "ciao";
-            $("#div1").html("ciao ma in jquery");
+            var rosso = true;
+            // document.getElementById("div1").innerHTML = "ciao";
+            $("#div1").html("Non premere il bottone");
+            // svolgono stessa funzione - - - - -
+            // $("#btn1").on("click", function(){}); 
+            // $("#btn1").click(function(){}); 
+            $("#btn1").click(function(){
+                $("#div1").attr("style", "background-color: red" );
+                $("#div1").html("ti avevo detto di non cliccare!!!");
+            if (rosso) {
+                $("#div1").attr("style", "background-color: red" );
+                rosso = false;
+            } else {
+                $("#div1").removeAttr("style" );
+                $("#div1").html("Non premere il bottone");
+                rosso = true;
+            }
+            });
+
             console.log($("#div1"));
         </script>
     </body>
